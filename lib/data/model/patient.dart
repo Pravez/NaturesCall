@@ -1,6 +1,6 @@
 import 'package:cloud_firestore_odm/cloud_firestore_odm.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:nature_call/model/validators/email_validator.dart';
+import 'package:nature_call/data/model/validators/email_validator.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 part 'patient.g.dart';
@@ -20,6 +20,11 @@ class Patient {
 
   @EmailValidator()
   final String email;
+
+  factory Patient.fromJson(Map<String, Object?> json) =>
+      _$PatientFromJson(json);
+
+  Map<String, Object?> toJson() => _$PatientToJson(this);
 }
 
 @Collection<Patient>("patients")

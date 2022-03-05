@@ -1,9 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rx_bloc/flutter_rx_bloc.dart';
-import 'package:nature_call/blocs/home/home_bloc.dart';
-import 'package:nature_call/pages/home.dart';
 
+import 'app_router.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -11,21 +10,21 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const NatureCallApp());
+  runApp(NatureCallApp());
 }
 
 class NatureCallApp extends StatelessWidget {
-  const NatureCallApp({Key? key}) : super(key: key);
+  NatureCallApp({Key? key}) : super(key: key);
+
+  final _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Nature's call",
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: RxBlocProvider<HomeBlocType>(
-        create: (ctx) => HomeBloc(),
-        child: const HomePage(),
-      ),
+    return MaterialApp.router(
+      darkTheme: ThemeData.dark(),
+      themeMode: ThemeMode.dark,
+      routerDelegate: _appRouter.delegate(),
+      routeInformationParser: _appRouter.defaultRouteParser(),
     );
   }
 }

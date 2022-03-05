@@ -20,10 +20,7 @@ abstract class $HomeBloc extends RxBlocBase
   final _compositeSubscription = CompositeSubscription();
 
   /// Тhe [Subject] where events sink to by calling [fetchData]
-  final _$fetchDataEvent = PublishSubject<void>();
-
-  /// The state of [isLoading] implemented in [_mapToIsLoadingState]
-  late final Stream<bool> _isLoadingState = _mapToIsLoadingState();
+  final _$fetchDataEvent = PublishSubject<String>();
 
   /// The state of [errors] implemented in [_mapToErrorsState]
   late final Stream<String> _errorsState = _mapToErrorsState();
@@ -31,11 +28,11 @@ abstract class $HomeBloc extends RxBlocBase
   /// The state of [data] implemented in [_mapToDataState]
   late final Stream<Result<Practitioner>> _dataState = _mapToDataState();
 
-  @override
-  void fetchData() => _$fetchDataEvent.add(null);
+  /// The state of [isLoading] implemented in [_mapToIsLoadingState]
+  late final Stream<LoadingWithTag> _isLoadingState = _mapToIsLoadingState();
 
   @override
-  Stream<bool> get isLoading => _isLoadingState;
+  void fetchData(String practitionerId) => _$fetchDataEvent.add(practitionerId);
 
   @override
   Stream<String> get errors => _errorsState;
@@ -43,11 +40,14 @@ abstract class $HomeBloc extends RxBlocBase
   @override
   Stream<Result<Practitioner>> get data => _dataState;
 
-  Stream<bool> _mapToIsLoadingState();
+  @override
+  Stream<LoadingWithTag> get isLoading => _isLoadingState;
 
   Stream<String> _mapToErrorsState();
 
   Stream<Result<Practitioner>> _mapToDataState();
+
+  Stream<LoadingWithTag> _mapToIsLoadingState();
 
   @override
   HomeBlocEvents get events => this;

@@ -27,8 +27,6 @@ class DefaultFirebaseOptions {
         return ios;
       case TargetPlatform.macOS:
         return macos;
-      case TargetPlatform.linux:
-        return web;
     }
 
     throw UnsupportedError(
@@ -55,21 +53,21 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyD-QjDxAEeLufNLsQ-PARCifJ2Wlzj626U',
-    appId: '1:383321204455:ios:0947d908870cca59d5e442',
+    appId: '1:383321204455:ios:9c4800382ca95fd9d5e442',
     messagingSenderId: '383321204455',
     projectId: 'pravez-nature-call',
     storageBucket: 'pravez-nature-call.appspot.com',
-    iosClientId: '383321204455-q5vlbb13e6nam1vnfheuc74a2j1mlbj6.apps.googleusercontent.com',
-    iosBundleId: 'com.pravez.app',
+    iosClientId: '383321204455-puf43p84acvin8cuvj0n2fakn3ccg5af.apps.googleusercontent.com',
+    iosBundleId: 'com.pravez.naturesCall',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyD-QjDxAEeLufNLsQ-PARCifJ2Wlzj626U',
-    appId: '1:383321204455:ios:0947d908870cca59d5e442',
+    appId: '1:383321204455:ios:9c4800382ca95fd9d5e442',
     messagingSenderId: '383321204455',
     projectId: 'pravez-nature-call',
     storageBucket: 'pravez-nature-call.appspot.com',
-    iosClientId: '383321204455-q5vlbb13e6nam1vnfheuc74a2j1mlbj6.apps.googleusercontent.com',
-    iosBundleId: 'com.pravez.app',
+    iosClientId: '383321204455-puf43p84acvin8cuvj0n2fakn3ccg5af.apps.googleusercontent.com',
+    iosBundleId: 'com.pravez.naturesCall',
   );
 }
