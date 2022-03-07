@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:nature_call/blocs/feature_home/views/home_page.dart';
+import 'package:nature_call/feature_home/views/home_page.dart';
 
 part 'app_router.gr.dart';
 

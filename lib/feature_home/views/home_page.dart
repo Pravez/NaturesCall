@@ -41,11 +41,8 @@ class HomePage extends StatelessWidget implements AutoRouteWrapper {
 
   Widget _buildDataContainer() => RxResultBuilder<HomeBlocType, Practitioner>(
         state: (bloc) => bloc.states.data,
-        buildLoading: (ctx, bloc) {
-          print("loading");
-          return const CircularProgressIndicator();
-        },
-        buildError: (ctx, error, bloc) => Text("error"),
+        buildLoading: (ctx, bloc) => const CircularProgressIndicator(),
+        buildError: (ctx, error, bloc) => const Text("error"),
         buildSuccess: (ctx, state, bloc) => Text(state.email),
       );
 
